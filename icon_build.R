@@ -8,6 +8,11 @@ library(RCurl)
 
 svg.file<-list.files(pattern = ".svg", recursive = TRUE)
 name<-basename(svg.file)
+#encode source svg
+svg.encode<-base64Encode(readBin(paste(svg.file), "raw", file.info(paste(svg.file))[1, "size"]), "txt")
+txt.svg<-as.character(svg.encode)
+write.table(txt.svg, file = paste("svg/", gsub(".svg", "", name), ".txt", sep=""), row.names = FALSE, col.names = FALSE, quote = FALSE)
+
 
 #-----read svg #256x256-----
 bitmap2<-rsvg(svg.file, height = 256, width = 213)
