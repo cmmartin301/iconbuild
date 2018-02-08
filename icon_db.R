@@ -116,7 +116,7 @@ Group<-tail(strsplit(getwd(), "/")[[1]], 2)[1]
 LastUpdated<-as.character(Sys.Date())
 
 #----Author----
-Author<-"Cameron Martin"
+Author<-""
 
 #---Build String----
 IconID.query<-paste("'", IconID, "'", sep="")
